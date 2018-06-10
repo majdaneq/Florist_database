@@ -1,7 +1,8 @@
-DELIMITER $$
-CREATE TRIGGER jebaczycie4 BEFORE INSERT ON kompozycje
-FOR EACH ROW BEGIN 
-IF (SELECT stan FROM kompozycje WHERE idkompozycji = NEW.idkompozycji AND stan>minimum)
-THEN DELETE FROM zapotrzebowanie WHERE idkompozycji = NEW.idkompozycji;
-END IF;
-END$$
+select * from zapotrzebowanie;
+select * from zamowienia;
+
+INSERT INTO zamowienia(idzamowienia,idklienta,idodbiorcy,idkompozycji,termin,cena,zaplacone,uwagi) VALUES
+(52,"A00001",1,"K0002","2018-01-05",40.00,true,"brak");
+
+select * from zapotrzebowanie;
+select * from zamowienia;
